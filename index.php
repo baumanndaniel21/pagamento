@@ -19,6 +19,9 @@
         <br />
         <input type="submit" value="Calcular" />
     </form>
+    <?php 
+    
+    ?>
 </body>
 
 </html>
