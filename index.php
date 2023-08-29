@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <h1>Folha de pagamento</h1>
+    <h1>--Folha de pagamento--</h1>
     <form method="post">
         <label>Quanto você ganha por hora?</label>
         <input type="number" name="vl_hora" placeholder="R$" required\>
