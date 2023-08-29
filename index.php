@@ -11,10 +11,10 @@
     <h1>Folha de pagamento</h1>
     <form>
         <label>Quanto você ganha por hora?</label>
-        <input type="text" name="vl_hora" required\>
+        <input type="number" name="vl_hora" required\>
         <br/>
         <label>Quanto tempo você trabalhou?</label>
-        <input type="number"
+        <input type="number" name="hora_trabalhada"required/>
         
 
     </form>
