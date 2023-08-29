@@ -31,7 +31,11 @@
         $horaTotal = $horaTrabalhada + $minutoTrabalhado/60;
         //echo ("Hora total: $horaTotal");
         $salario = $valorHora * $horaTotal;
-        echo ("<br/>Você receberá R$ ".round($salario,2));
+        echo ("<br/>+ Salário Bruto: R$ ".round($salario,2));
+        $ir = $salario*11/100;
+        echo ("<br/>- IR (11%) : R$ $ir");
+        $inss = $salario * 8/100;
+        echo ("<br/>- INSS (8%) : R$ $inss");
     } //Fim IF Post
     ?>
 </body>
