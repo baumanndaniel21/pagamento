@@ -14,7 +14,11 @@
         <input type="number" name="vl_hora" required\>
         <br/>
         <label>Quanto tempo você trabalhou?</label>
-        <input type="number" name="hora_trabalhada"required/>
+        <input type="number" name="hora_trabalhada"required/>:
+        <input type="number" name="minuto_trabalhado"required/>
+        <br/>
+        
+      
         
 
     </form>
