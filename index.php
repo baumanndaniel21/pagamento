@@ -27,6 +27,11 @@
         $minutoTrabalhado = $_POST['minuto_trabalhado'];
         echo ("Valor da hora R$ $valorHora <br/>");
         echo ("Horas trabalhadas $horaTrabalhada : $minutoTrabalhado");
+        //Realizar calculo
+        $horaTotal = $horaTrabalhada + $minutoTrabalhado/60;
+        //echo ("Hora total: $horaTotal");
+        $salario = $valorHora * $horaTotal;
+        echo ("<br/>Você receberá R$ ".round($salario,2));
     } //Fim IF Post
     ?>
 </body>
