@@ -11,7 +11,7 @@
     <h1>Folha de pagamento</h1>
     <form method="post">
         <label>Quanto você ganha por hora?</label>
-        <input type="number" name="vl_hora" placeholder="R$" required \>
+        <input type="number" step="0.01"  name="vl_hora" placeholder="R$" required \>
         <br />
         <label>Quantas horas você trabalhou?</label>
         <input type="number" name="hora_trabalhada" required placeholder="hora" maxlength="2" />:
@@ -38,6 +38,8 @@
         echo ("<br/>- INSS (8%) : R$ ".round($inss,2));
         $sindicato = $salario * 5/100;
         echo ("<br/>- Sindicato (5%) : R$ ". round($sindicato,2));
+        $salarioLiquido = $salario - $ir - $inss - $sindicato;
+        echo ("<br/>= Salário Liquido : R$ ".round($salarioLiquido,2));
     } //Fim IF Post
     ?>
 </body>
