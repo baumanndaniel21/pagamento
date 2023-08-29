@@ -9,17 +9,15 @@
 
 <body>
     <h1>Folha de pagamento</h1>
-    <form>
+    <form method="post">
         <label>Quanto você ganha por hora?</label>
         <input type="number" name="vl_hora" placeholder="R$" required\>
         <br />
-        <label>Quanto tempo você trabalhou?</label>
+        <label>Quantas horas você trabalhou?</label>
         <input type="number" name="hora_trabalhada" required placeholder="hora" />:
         <input type="number" name="minuto_trabalhado" required placeholder="minutos" />
         <br />
         <input type="submit" value="Calcular" />
-
-
     </form>
 </body>
 
