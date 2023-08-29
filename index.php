@@ -33,9 +33,11 @@
         $salario = $valorHora * $horaTotal;
         echo ("<br/>+ Salário Bruto: R$ ".round($salario,2));
         $ir = $salario*11/100;
-        echo ("<br/>- IR (11%) : R$ $ir");
+        echo ("<br/>- IR (11%) : R$ ".round($ir,2));
         $inss = $salario * 8/100;
-        echo ("<br/>- INSS (8%) : R$ $inss");
+        echo ("<br/>- INSS (8%) : R$ ".round($inss,2));
+        $sindicato = $salario * 5/100;
+        echo ("<br/>- Sindicato (5%) : R$ ". round($sindicato,2));
     } //Fim IF Post
     ?>
 </body>
