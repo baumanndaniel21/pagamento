@@ -35,9 +35,9 @@
             $inss = $salarioDeContribuicao * 14/100;
         }//elseif
         else{
-            $inss = 877.24;
-            //Verificar com contador o que acontece com salários acima de  R$ 7,507,49
-        }
+            $inss = 877.24;          
+        }//fim else
+        return round($inss,2);
     }//Fim Função
     if ($_POST) {
 
@@ -56,8 +56,8 @@
         echo ("<br/>+ Salário Bruto: R$ ".round($salario,2));
         $ir = $salario*11/100;
         echo ("<br/>- IR (11%) : R$ ".round($ir,2));
-        $inss = $salario * 8/100;
-        echo ("<br/>- INSS (8%) : R$ ".round($inss,2));
+        
+        echo ("<br/>- INSS: R$ ".descontoINSS($salario));
         $sindicato = $salario * 5/100;
         echo ("<br/>- Sindicato (5%) : R$ ". round($sindicato,2));
         $salarioLiquido = $salario - $ir - $inss - $sindicato;
