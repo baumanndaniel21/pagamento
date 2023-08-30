@@ -41,7 +41,11 @@
     }//Fim Função
     function calculaIRPF($salarioDeContribuicao,$inss){
         $salarioTemp = $salarioDeContribuicao - $inss;
-        
+        if($salarioTemp<= 1903.98){
+            return 0;
+        }elseif($salarioTemp >= 1903.99 && $salarioTemp <=2826.65){
+            return round(0.075*$salarioTemp-142.80,2);
+        }
     }//Fim Função
     if ($_POST) {
 
@@ -58,12 +62,9 @@
         //echo ("Hora total: $horaTotal");
         $salario = $valorHora * $horaTotal;
         echo ("<br/>+ Salário Bruto: R$ ".round($salario,2));
-        $ir = $salario*11/100;
-        echo ("<br/>- IR (11%) : R$ ".round($ir,2));
+        echo ("<br/>- IR  : R$ ".calculaIRPF($salario,descontoINSS($salario)));
         echo ("<br/>- INSS: R$ ".descontoINSS($salario));
-        $sindicato = $salario * 5/100;
-        echo ("<br/>- Sindicato (5%) : R$ ". round($sindicato,2));
-        $salarioLiquido = $salario - $ir - $inss - $sindicato;
+        $salarioLiquido = $salario - descontoINSS($salario) -calculaIRPF($salario,descontoINSS($salario));
         echo ("<br/>= Salário Liquido : R$ ".round($salarioLiquido,2));
     } //Fim IF Post
     ?>
