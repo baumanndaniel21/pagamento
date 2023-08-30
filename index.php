@@ -22,7 +22,7 @@
     <?php
     //Função para calcular o INSS (Atualizado em 2023)
     function descontoINSS($salarioDeContribuicao){
-        if($salarioDeContribuicao==1320.00){
+        if($salarioDeContribuicao<=1320.00){
             $inss = $salarioDeContribuicao * 7.5/100;
         }//Fim Se
         elseif($salarioDeContribuicao>=1320.01 && $salarioDeContribuicao <=2571.29){
