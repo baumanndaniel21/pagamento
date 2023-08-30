@@ -75,6 +75,7 @@
         echo ("<br/>- INSS: R$ ".descontoINSS($salario));
         $salarioLiquido = $salario - descontoINSS($salario) -calculaIRPF($salario,descontoINSS($salario));
         echo ("<br/>= Salário Liquido : R$ ".round($salarioLiquido,2));
+        //teste
     } //Fim IF Post
     ?>
 </body>
