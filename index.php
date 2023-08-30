@@ -31,6 +31,13 @@
         elseif($salarioDeContribuicao>= 2571.30 && $salarioDeContribuicao <= 3856.94){
             $alicota = 12/100;
         }//elseif
+        elseif($salarioDeContribuicao>=  3856.95 && $salarioDeContribuicao <= 7507.49){
+            $alicota = 14/100;
+        }//elseif
+        else{
+            $alicota = 0;
+            //Verificar com contador o que acontece com salários acima de  R$ 7,507,49
+        }
     }//Fim Função
     if ($_POST) {
 
