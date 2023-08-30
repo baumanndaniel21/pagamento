@@ -39,6 +39,10 @@
         }//fim else
         return round($inss,2);
     }//Fim Função
+    function calculaIRPF($salarioDeContribuicao,$inss){
+        $salarioTemp = $salarioDeContribuicao - $inss;
+        
+    }//Fim Função
     if ($_POST) {
 
 
@@ -56,7 +60,6 @@
         echo ("<br/>+ Salário Bruto: R$ ".round($salario,2));
         $ir = $salario*11/100;
         echo ("<br/>- IR (11%) : R$ ".round($ir,2));
-        
         echo ("<br/>- INSS: R$ ".descontoINSS($salario));
         $sindicato = $salario * 5/100;
         echo ("<br/>- Sindicato (5%) : R$ ". round($sindicato,2));
