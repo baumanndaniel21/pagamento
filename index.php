@@ -21,21 +21,21 @@
     </form>
     <?php
     //Função para calcular o INSS (Atualizado em 2023)
-    function alicotaINSS($salarioDeContribuicao){
+    function descontoINSS($salarioDeContribuicao){
         if($salarioDeContribuicao==1320.00){
-            $alicota = 7.5/100;
+            $inss = 7.5/100;
         }//Fim Se
         elseif($salarioDeContribuicao>=1320.01 && $salarioDeContribuicao <=2571.29){
-            $alicota = 9/100;
+            $inss = 9/100;
         }//elseif
         elseif($salarioDeContribuicao>= 2571.30 && $salarioDeContribuicao <= 3856.94){
-            $alicota = 12/100;
+            $inss = 12/100;
         }//elseif
         elseif($salarioDeContribuicao>=  3856.95 && $salarioDeContribuicao <= 7507.49){
-            $alicota = 14/100;
+            $inss = 14/100;
         }//elseif
         else{
-            $alicota = 0;
+            $inss = 0;
             //Verificar com contador o que acontece com salários acima de  R$ 7,507,49
         }
     }//Fim Função
