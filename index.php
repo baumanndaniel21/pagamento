@@ -26,7 +26,10 @@
             $alicota = 7.5/100;
         }//Fim Se
         elseif($salarioDeContribuicao>=1320.01 && $salarioDeContribuicao <=2571.29){
-            $alicota = 7.5/100;
+            $alicota = 9/100;
+        }//elseif
+        elseif($salarioDeContribuicao>= 2571.30 && $salarioDeContribuicao <= 3856.94){
+            $alicota = 12/100;
         }//elseif
     }//Fim Função
     if ($_POST) {
