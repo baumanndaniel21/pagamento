@@ -161,20 +161,38 @@
 
             //if($_SERVER["REQUEST_METHOD"]==="POST") { 
             //Atribuir os valores nas variáveis recebidas do formulário
+            /*
             $valorHora = $_POST['vl_hora'];
             $horaTrabalhada = $_POST['hora_trabalhada'];
             $minutoTrabalhado = $_POST['minuto_trabalhado'];
-            echo ("Valor da hora R$ $valorHora <br/>");
+*/
+            /*Implementando as melhorias sugeridas pelo chatGPT
+            Sanitização de Entradas:
+            Certifique-se de sanitizar as entradas do formulário para evitar possíveis vulnerabilidades de segurança, como ataques de injeção.*/
+            $valorHora = isset($_POST['vl_hora']) ? floatval($_POST['vl_hora']) : 0;
+            $horaTrabalhada = isset($_POST['hora_trabalhada']) ? intval($_POST['hora_trabalhada']) : 0;
+            $minutoTrabalhado = isset($_POST['minuto_trabalhado']) ? intval($_POST['minuto_trabalhado']) : 0;
+
+
+
+            echo ("Valor da hora R$ " . number_format($valorHora, 2, ',', '.') . " <br/>");
             echo ("Horas trabalhadas $horaTrabalhada : $minutoTrabalhado");
             //Realizar calculo
             $horaTotal = $horaTrabalhada + $minutoTrabalhado / 60;
             //echo ("Hora total: $horaTotal");
             $salario = $valorHora * $horaTotal;
-            echo ("<br/>+ Salário Bruto: R$ " . round($salario, 2));
-            echo ("<br/>- IR  : R$ " . calculaIRPF($salario, descontoINSS($salario)));
-            echo ("<br/>- INSS: R$ " . descontoINSS($salario));
+            /*
+            echo "Salário Bruto: R$ " . number_format($salario, 2, ',', '.');
+echo "IR  : R$ " . number_format(calculaIRPF($salario, descontoINSS($salario)), 2, ',', '.');
+echo "INSS: R$ " . number_format(descontoINSS($salario), 2, ',', '.');
+echo "Salário Líquido: R$ " . number_format($salarioLiquido, 2, ',', '.');
+
+            */
+            echo ("<br/>+ Salário Bruto: R$ " . number_format($salario, 2, ',', '.'));
+            echo ("<br/>- IR  : R$ " . number_format(calculaIRPF($salario, descontoINSS($salario)), 2, ',', '.'));
+            echo ("<br/>- INSS: R$ " . number_format(descontoINSS($salario), 2, ',', '.'));
             $salarioLiquido = $salario - descontoINSS($salario) - calculaIRPF($salario, descontoINSS($salario));
-            echo ("<br/>= Salário Liquido : R$ " . round($salarioLiquido, 2));
+            echo ("<br/>= Salário Liquido : R$ " . number_format($salarioLiquido, 2, ',', '.'));
 
         } //Fim IF Post
         ?>
