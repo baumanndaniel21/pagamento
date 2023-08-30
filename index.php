@@ -181,13 +181,7 @@
             $horaTotal = $horaTrabalhada + $minutoTrabalhado / 60;
             //echo ("Hora total: $horaTotal");
             $salario = $valorHora * $horaTotal;
-            /*
-            echo "Salário Bruto: R$ " . number_format($salario, 2, ',', '.');
-echo "IR  : R$ " . number_format(calculaIRPF($salario, descontoINSS($salario)), 2, ',', '.');
-echo "INSS: R$ " . number_format(descontoINSS($salario), 2, ',', '.');
-echo "Salário Líquido: R$ " . number_format($salarioLiquido, 2, ',', '.');
-
-            */
+       
             echo ("<br/>+ Salário Bruto: R$ " . number_format($salario, 2, ',', '.'));
             echo ("<br/>- IR  : R$ " . number_format(calculaIRPF($salario, descontoINSS($salario)), 2, ',', '.'));
             echo ("<br/>- INSS: R$ " . number_format(descontoINSS($salario), 2, ',', '.'));
