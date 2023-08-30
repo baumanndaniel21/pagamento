@@ -20,7 +20,19 @@
         <input type="submit" value="Calcular" />
     </form>
     <?php
+    //Função para calcular o INSS (Atualizado em 2023)
+    function alicotaINSS($salarioDeContribuicao){
+        if($salarioDeContribuicao==1320.00){
+            $alicota = 7.5/100;
+        }//Fim Se
+        elseif($salarioDeContribuicao>=1320.01 && $salarioDeContribuicao <=2571.29){
+            $alicota = 7.5/100;
+        }//elseif
+    }//Fim Função
     if ($_POST) {
+
+
+    //if($_SERVER["REQUEST_METHOD"]==="POST") { 
         //Atribuir os valores nas variáveis recebidas do formulário
         $valorHora = $_POST['vl_hora'];
         $horaTrabalhada = $_POST['hora_trabalhada'];
