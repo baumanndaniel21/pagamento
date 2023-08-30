@@ -156,10 +156,10 @@
                 return round(0.275 * $salarioTemp - 869.36, 2);
             }
         } //Fim Função
-        if ($_POST) {
+        //if ($_POST) {
+        
 
-
-            //if($_SERVER["REQUEST_METHOD"]==="POST") { 
+        if ($_SERVER["REQUEST_METHOD"] === "POST") {
             //Atribuir os valores nas variáveis recebidas do formulário
             /*
             $valorHora = $_POST['vl_hora'];
@@ -176,12 +176,19 @@
 
 
             echo ("Valor da hora R$ " . number_format($valorHora, 2, ',', '.') . " <br/>");
-            echo ("Horas trabalhadas $horaTrabalhada : $minutoTrabalhado");
+
             //Realizar calculo
-            $horaTotal = $horaTrabalhada + $minutoTrabalhado / 60;
+            $horaTotal = ($horaTrabalhada + $minutoTrabalhado / 60);
+            // Separar a parte inteira das horas e os minutos
+            $horasInteiras = floor($horaTotal);
+            $minutos = round(($horaTotal - $horasInteiras) * 60);
+
+            // Formatar a saída
+            echo "Horas trabalhadas: " . $horasInteiras . "h " . $minutos . "min";
+           
             //echo ("Hora total: $horaTotal");
             $salario = $valorHora * $horaTotal;
-       
+
             echo ("<br/>+ Salário Bruto: R$ " . number_format($salario, 2, ',', '.'));
             echo ("<br/>- IR  : R$ " . number_format(calculaIRPF($salario, descontoINSS($salario)), 2, ',', '.'));
             echo ("<br/>- INSS: R$ " . number_format(descontoINSS($salario), 2, ',', '.'));
@@ -189,6 +196,11 @@
             echo ("<br/>= Salário Liquido : R$ " . number_format($salarioLiquido, 2, ',', '.'));
 
         } //Fim IF Post
+        
+        $totalMinutos = 50; // Total de minutos
+        $horas = floor($totalMinutos / 60); // Divide pelos minutos em uma hora
+        $minutos = $totalMinutos % 60; // Calcula o restante dos minutos
+        echo $horas . "h " . $minutos . "min";
         ?>
     </main>
     <script src="js/bootstrap.bundle.min.js" </script>
