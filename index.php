@@ -121,41 +121,8 @@
 
 
         <?php
-        //Função para calcular o INSS (Atualizado em 2023)
-        function descontoINSS($salarioDeContribuicao)
-        {
-            if ($salarioDeContribuicao <= 1320.00) {
-                $inss = $salarioDeContribuicao * 7.5 / 100;
-            } //Fim Se
-            elseif ($salarioDeContribuicao >= 1320.01 && $salarioDeContribuicao <= 2571.29) {
-                $inss = $salarioDeContribuicao * 9 / 100;
-            } //elseif
-            elseif ($salarioDeContribuicao >= 2571.30 && $salarioDeContribuicao <= 3856.94) {
-                $inss = $salarioDeContribuicao * 12 / 100;
-            } //elseif
-            elseif ($salarioDeContribuicao >= 3856.95 && $salarioDeContribuicao <= 7507.49) {
-                $inss = $salarioDeContribuicao * 14 / 100;
-            } //elseif
-            else {
-                $inss = 877.24;
-            } //fim else
-            return round($inss, 2);
-        } //Fim Função
-        function calculaIRPF($salarioDeContribuicao, $inss)
-        {
-            $salarioTemp = $salarioDeContribuicao - $inss;
-            if ($salarioTemp <= 1903.98) {
-                return 0;
-            } elseif ($salarioTemp >= 1903.99 && $salarioTemp <= 2826.65) {
-                return round(0.075 * $salarioTemp - 142.80, 2);
-            } elseif ($salarioTemp >= 2826.6 && $salarioTemp <= 3751.05) {
-                return round(0.15 * $salarioTemp - 354.80, 2);
-            } elseif ($salarioTemp >= 3751.06 && $salarioTemp <= 4664.68) {
-                return round(0.225 * $salarioTemp - 636, 13, 2);
-            } else {
-                return round(0.275 * $salarioTemp - 869.36, 2);
-            }
-        } //Fim Função
+        include 'inss.php';
+        include 'irpf.php';    
         //if ($_POST) {
         
 
